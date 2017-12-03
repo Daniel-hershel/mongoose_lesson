@@ -2,23 +2,40 @@
 const {mongoose, runWithDatabase} = require('./database');
 
 const magicObject = new mongoose.Schema({
-  objectType: { type: String },
+  objectType: {
+    type: String,
+    required:true
+  },
+  magicalProperty: {
+    type: String, 
+    required: true
+  },
+  unitCost: {
+    type: Number,
+    required: true
+  },
+  totalUnits: {
+    type: Number,
+    required: true
+  }
+
 });
 
+const MagicBag = mongoose.model('MagicBag', magicObject);
 
-
-const MagicBag = mongoose.model(‘MagicBag’, magicObject);
 
 const properties = {
-	objectType: "cloack" ,
+	objectType: "cloak" ,
 	magicalProperty: "invisibility" ,
 	unitCost: 25 ,
 	totalUnits: 100
 }
 
+
 runWithDatabase(async () => {
-  // Create an entry	
-  MagicBag.create(properties)
-  // your executable query code goes here
+  // Create an entry  here   
+   MagicBag.create(properties)
+
 });
+
 

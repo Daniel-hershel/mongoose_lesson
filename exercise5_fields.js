@@ -5,3 +5,5 @@ const magicObject = new mongoose.Schema({
 })
 
 const MagicBag = mongoose.model(‘MagicBag’, magicObject);
+
+
